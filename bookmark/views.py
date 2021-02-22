@@ -3,6 +3,14 @@ from .models import BookMark
 from django.urls import reverse_lazy
 from bootstrap_modal_forms.generic import BSModalCreateView, BSModalDeleteView, BSModalUpdateView
 from .forms import BookmarkModelForm
+from django.shortcuts import render
+
+
+def search(request):
+    if request.method == "GET":
+        search = request.GET.get('search')
+        bookmarks = BookMark.objects.all().filter(bookmark_title=search)
+        return render(request, 'search_bar.html', {'bookmarks': bookmarks})
 
 
 class BookmarkListView(generic.ListView):

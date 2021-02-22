@@ -11,5 +11,6 @@ urlpatterns = [
          views.BookmarkDeleteView.as_view(), name='delete_bookmark'),
     path('edit/<int:pk>/',
          views.BookmarkUpdateView.as_view(), name='edit_bookmark'),
-    path('add/', views.BookCreateView.as_view(), name='add_bookmark')
+    path('add/', views.BookCreateView.as_view(), name='add_bookmark'),
+    path('searching/', views.search, name='search')
 ]
