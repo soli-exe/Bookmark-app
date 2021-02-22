@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block content %} {% include "modal.html" %}
+
+<button
+  id="create-bookmark"
+  class="btn btn-primary"
+  type="button"
+  name="button"
+>
+  <span class="add"></span>Create book
+</button>
+
+<div class="col-12 mb-3">
+  {% if bookmarks %} {% include "bookmarks_table.html" %} {% else %}
+  <p class="no-books text-primary">No bookmarks added yet.</p>
+  {% endif %}
+</div>
+
+{% endblock content %} {% block extrascripts %}
+<script type="text/javascript">
+  $(function () {
+    function createBookSyncModalForm() {
+      $("#create-bookmark").modalForm({
+        formURL: "{% url 'add_bookmark' %}",
+        modalID: "#create-modal",
+      });
+    }
+    createBookSyncModalForm();
+
+    $(".bs-modal").each(function () {
+      $(this).modalForm({ formURL: $(this).data("form-url") });
+    });
+  });
+</script>
+{% endblock extrascripts %}

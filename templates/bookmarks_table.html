@@ -1,0 +1,38 @@
+<table id="books-table" class="table">
+  <thead>
+    <tr>
+      <th class="text-center" scope="col">#</th>
+      <th class="text-center" scope="col">Title</th>
+      <th class="text-center" scope="col">URL</th>
+      <th class="text-center" scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for bookmark in bookmarks %}
+    <tr>
+      <th class="text-center" scope="row">{{ forloop.counter }}</th>
+      <td class="text-center">{{ bookmark.bookmark_title }}</td>
+      <td class="text-center"><a href="{{ bookmark_link }}">{{ bookmark.bookmark_link }}</a></td>
+      <td class="text-center">{{ bookmark.bookmark_publication_date }}</td>
+      <td class="text-center">
+          <span class="fa fa-eye"></span>
+        </button>
+        <button
+          type="button"
+          class="update-book btn btn-sm btn-primary"
+          data-form-url="{% url 'edit_bookmark' bookmark.pk %}"
+        >
+          <span class="fa fa-pencil"></span>
+        </button>
+        <button
+          type="button"
+          class="bs-modal delete-book btn btn-sm btn-danger"
+          data-form-url="{% url 'delete_bookmark' bookmark.pk %}"
+        >
+          <span class="fa fa-trash"></span>
+        </button>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
