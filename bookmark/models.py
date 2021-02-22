@@ -9,7 +9,7 @@ class BookMark(models.Model):
         max_length=250, null=False, blank=False)
     bookmark_link = URLField(null=False, blank=False)
     bookmark_publication_date = DateTimeField(auto_now_add=True)
-    slug = models.SlugField(max_length=250, unique=True)
+
     timestamp = models.DateField(auto_now_add=True, auto_now=False)
 
     def __str__(self) -> str:
