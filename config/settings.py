@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django_bootstrap_icons',
     'bootstrap4',
     'bootstrap_modal_forms',
     'bookmark.apps.BookmarkConfig',
@@ -115,6 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
+
 
 LANGUAGE_CODE = 'en-us'
 

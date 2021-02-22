@@ -1,5 +1,7 @@
 from django.db import models
-from django.db.models.fields import CharField, DateTimeField, URLField
+from django.db.models.fields import (CharField,
+                                     DateTimeField,
+                                     URLField)
 
 
 class BookMark(models.Model):

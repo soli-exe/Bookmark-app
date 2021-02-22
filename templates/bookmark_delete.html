@@ -1,25 +1,23 @@
-{% extends 'base.html' %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Delete Bookmark</title>
-  </head>
-  <body>
-    {% block content %}
-    <h1>Delete Bookmark</h1>
-    <form method="POST">
-      {{form.as_p}} {% csrf_token %}
-      <p>
-        Are You sure you want to delete {{bookmark_del_object.bookmark_title}} ?
-      </p>
-      <input class="btn-warning" type="submit" value="Yes" />
-    </form>
-    <button class="btn-confirm" onclick="location.href = '/bookmarks/'">
-      No
+{% load widget_tweaks %}
+
+<form method="post" action="">
+  {% csrf_token %}
+
+  <div class="modal-header">
+    <h3 class="modal-title">Remove Bookmark</h3>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
     </button>
-    {% endblock content %}
-  </body>
-</html>
+  </div>
+
+  <div class="modal-body">
+    <p>
+      Are you sure you want to delete
+      <strong>{{ bookmarks.bookmark_title }}</strong>?
+    </p>
+  </div>
+
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-danger">Remove</button>
+  </div>
+</form>

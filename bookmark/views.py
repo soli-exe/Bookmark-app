@@ -29,5 +29,6 @@ class BookmarkUpdateView(BSModalUpdateView):
 class BookmarkDeleteView(BSModalDeleteView):
     model = BookMark
     template_name = 'bookmark_delete.html'
+    context_object_name = 'bookmarks'
     success_message = 'Bookmark Deleted!'
     success_url = reverse_lazy('index')

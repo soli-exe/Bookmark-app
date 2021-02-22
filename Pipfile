@@ -11,6 +11,7 @@ bootstrap4 = "*"
 django-widget-tweaks = "*"
 django-bootstrap4 = "*"
 djangoajax = "*"
+django-bootstrap-icons = "*"
 
 [dev-packages]
 
