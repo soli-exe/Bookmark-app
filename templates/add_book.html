@@ -30,5 +30,12 @@
 
   <div class="modal-footer">
     <button type="button" class="submit-btn btn btn-primary">Add</button>
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
   </div>
 </form>

@@ -1,5 +1,4 @@
-{% extends 'base.html' %} {% block content %} {% include "modal.html" %}
-
+{% extends 'base.html' %} {% block content %} {% include "modal.html" %} 
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
   <button
     class="navbar-toggler"
@@ -32,10 +31,9 @@
       </li>
       <li class="nav-item dropdown">
         <a
-          style="color: chartreuse"
+        style="color: chartreuse;"
           class="nav-link dropdown-toggle"
-          href="#"
-          id="navbarDropdown"
+          id="navbarDropdownMenuLink"
           role="button"
           data-toggle="dropdown"
           aria-haspopup="true"
@@ -43,7 +41,7 @@
         >
           User
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="#">Login</a>
           <a class="dropdown-item" href="#">Signup</a>
         </div>
@@ -67,39 +65,53 @@
     </form>
   </div>
 </nav>
-<center>
-  <button
-    style="margin: 1%; color: chartreuse"
-    id="create-bookmark"
-    class="btn btn-dark"
-    type="button"
-    name="button"
-  >
-    <span class="add"></span>Add Bookmark
-  </button>
-  <div class="col-12 mb-3">
-    {% if bookmarks %} {% include "bookmarks_table.html" %} {% else %}
-    <strong
-      ><p style="color: crimson; margin: 1%">No bookmarks added yet.</p></strong
+<center>{% include 'header.html' %}</center>
+  <center>
+    <button
+      style="margin: 1%; color: chartreuse"
+      id="create-bookmark"
+      class="btn btn-dark"
+      type="button"
+      name="button"
     >
-    {% endif %}
-  </div>
-</center>
+      <span class="add"></span>Add Bookmark
+    </button>
+    <div class="col-12 mb-3">
+      {% if bookmarks %} {% include "bookmarks_table.html" %} {% else %}
+      <strong
+        ><p style="color: crimson; margin: 1%">
+          No bookmarks added yet.
+        </p></strong
+      >
+      {% endif %}
+    </div>
+  </center>
 
-{% endblock content %} {% block extrascripts %}
-<script type="text/javascript">
-  $(function () {
-    function createBookSyncModalForm() {
-      $("#create-bookmark").modalForm({
-        formURL: "{% url 'add_bookmark' %}",
-        modalID: "#create-modal",
-      });
-    }
-    createBookSyncModalForm();
-
-    $(".bs-modal").each(function () {
-      $(this).modalForm({ formURL: $(this).data("form-url") });
+  
+  {% endblock content %} {% block extrascripts %}
+  <script type="text/javascript">
+    $(function () {
+      $("#login-btn").modalForm({
+      formURL: "",
     });
-  });
-</script>
-{% endblock extrascripts %}
+
+    $("#signup-btn").modalForm({
+      formURL: "",
+    });
+
+
+      function createBookSyncModalForm() {
+        $("#create-bookmark").modalForm({
+          formURL: "{% url 'add_bookmark' %}",
+          modalID: "#create-modal",
+        });
+      }
+      createBookSyncModalForm();
+
+      $(".bs-modal").each(function () {
+        $(this).modalForm({ formURL: $(this).data("form-url") });
+      });
+    });
+  </script>
+  {% endblock extrascripts %}
+</header>
