@@ -1,7 +1,7 @@
 {% load django_bootstrap_icons %}
 {% include_bootstrap_icons %}
 <center>
-<div class="card" style="width: 60rem;">
+<div data-spy="scroll" class="card text-white bg-dark mb-3" style="width: 60rem; border-radius: 15px;">
   <div class="card-body">
     <div class="card-title">
       Your BookMarks
@@ -9,11 +9,12 @@
     <p class="card-body">
       <table id="books-table" class="table">
         <thead>
-          <tr>
+          <tr style="color: lawngreen;">
             <th class="text-center" scope="col">#</th>
             <th class="text-center" scope="col">Title</th>
             <th class="text-center" scope="col">URL</th>
             <th class="text-center" scope="col">Date</th>
+            <th class="text-center" scope="col">Options</th>
           </tr>
         </thead>
         <tbody>
