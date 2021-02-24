@@ -13,7 +13,7 @@ from .forms import (BookmarkModelForm, CustomAuthenticationForm)
 
 class SearchView(generic.ListView):
     model = BookMark
-    template_name = 'search.html'
+    template_name = 'search_result.html'
 
     def get_queryset(self):
         query = self.request.GET.get('q')
