@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 class BookmarkModelForm(BSModalModelForm):
     class Meta:
         model = BookMark
+        fields = ['bookmark_title', 'bookmark_link']
         exclude = ['timestamp']
 
 

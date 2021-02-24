@@ -10,7 +10,7 @@
             <th class="text-center" scope="col">#</th>
             <th class="text-center" scope="col">Title</th>
             <th class="text-center" scope="col">URL</th>
-            <th class="text-center" scope="col">Date</th>
+            <!-- <th class="text-center" scope="col">Date</th> -->
             <th class="text-center" scope="col">Options</th>
           </tr>
         </thead>
@@ -20,29 +20,27 @@
             <th class="text-center" scope="row">{{ forloop.counter }}</th>
             <td class="text-center">{{ bookmark.bookmark_title }}</td>
             <td class="text-center"><a href="{{ bookmark.bookmark_link }}">{{ bookmark.bookmark_link }}</a></td>
-            <td class="text-center">{{ bookmark.timestamp }}</td>
+            <!-- <td class="text-center">{{ bookmark.timestamp }}</td> -->
             <td class="text-center">
-                <span class="fa fa-eye"></span>
-              </button>
-              <button
-                type="button"
-                class="bs-modal btn btn-sm btn-primary"
-                data-form-url="{% url 'edit_bookmark' bookmark.pk %}"
-              >
-              <i class="bi bi-pencil-fill"></i>
-              </button>
-              <button
-                type="button"
-                class="bs-modal delete-book btn btn-sm btn-danger"
-                data-form-url="{% url 'delete_bookmark' bookmark.pk %}"
-              >
-              <i class="bi bi-trash-fill"></i>
-              </button>
+                  <button
+                  type="button"
+                  class="bs-modal btn btn-sm btn-outline-primary"
+                  data-form-url="{% url 'edit_bookmark' bookmark.pk %}"
+                >
+                <i class="bi bi-pencil-fill"></i>
+                </button>
+                <button
+                  type="button"
+                  class="bs-modal btn btn-sm btn-outline-danger"
+                  data-form-url="{% url 'delete_bookmark' bookmark.pk %}"
+                >
+                <i class="bi bi-trash-fill"></i>
+                </button>
+              </div>
             </td>
           </tr>
           {% endfor %}
         </tbody>
       </table>
     </p>
-  </div>
 </div>

@@ -1,3 +1,7 @@
+from django.contrib.auth.mixins import (
+    LoginRequiredMixin, UserPassesTestMixin,)
+from django.contrib.auth.models import User
+from django.http.response import Http404, HttpResponse
 from django.shortcuts import render
 from django.views import generic
 from .models import BookMark
@@ -21,27 +25,44 @@ class BookmarkListView(generic.ListView):
     template_name = 'index.html'
 
 
-class BookCreateView(BSModalCreateView):
+class BookCreateView(LoginRequiredMixin,
+                     BSModalCreateView):
     template_name = 'add_book.html'
     form_class = BookmarkModelForm
     success_message = 'Bookmark Added.'
     success_url = reverse_lazy('index')
 
+    def form_valid(self, form) -> HttpResponse:
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
 
-class BookmarkUpdateView(BSModalUpdateView):
+
+class BookmarkUpdateView(LoginRequiredMixin,
+                         UserPassesTestMixin,
+                         BSModalUpdateView):
     model = BookMark
     template_name = 'bookmark_edit.html'
     form_class = BookmarkModelForm
     success_message = 'Bookmark Edited.'
     success_url = reverse_lazy('index')
 
+    def test_func(self):
+        objects = self.get_object()
+        return objects.owner == self.request.user
 
-class BookmarkDeleteView(BSModalDeleteView):
+
+class BookmarkDeleteView(LoginRequiredMixin,
+                         UserPassesTestMixin,
+                         BSModalDeleteView):
     model = BookMark
     template_name = 'bookmark_delete.html'
     context_object_name = 'bookmarks'
     success_message = 'Bookmark Deleted!'
     success_url = reverse_lazy('index')
+
+    def test_func(self):
+        objects = self.get_object()
+        return objects.owner == self.request.user
 
 
 class CustomLoginView(BSModalLoginView):
