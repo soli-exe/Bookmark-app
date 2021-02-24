@@ -1,0 +1,89 @@
+{% load static %}
+{% include 'modal.html' %}
+{% load django_bootstrap_icons %}
+{% include_bootstrap_icons %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block stylesheets %}
+  <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
+  {% endblock stylesheets %}
+</head>
+  <body style="background: rgb(94, 94, 94);">
+    {% block scripts %}
+    <script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+    {% endblock scripts %}
+
+  {% block content %}
+  {% if object_list %}
+  <div class="card bg-dark pre-scrollable" style="border-radius: 15px; margin: 15px; margin-top: 30px;">
+    <div class="card-body">
+      <p>
+        <table id="books-table" class="table table-striped">
+          <thead>
+            <tr style="color: lawngreen;">
+              <th class="text-center" scope="col">#</th>
+              <th class="text-center" scope="col">Title</th>
+              <th class="text-center" scope="col">URL</th>
+              <!-- <th class="text-center" scope="col">Date</th> -->
+              <th class="text-center" scope="col">Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for bookmark in object_list %}
+            <tr>
+              <th class="text-center text-white" scope="row">{{ forloop.counter }}</th>
+              <td class="text-center text-white">{{ bookmark.bookmark_title }}</td>
+              <td class="text-center"><a href="{{ bookmark.bookmark_link }}">{{ bookmark.bookmark_link }}</a></td>
+              <!-- <td class="text-center">{{ bookmark.timestamp }}</td> -->
+              <td class="text-center">
+                    <button
+                    type="button"
+                    class="bs-modal btn btn-sm btn-outline-primary"
+                    data-form-url="{% url 'edit_bookmark' bookmark.pk %}"
+                  >
+                  <i class="bi bi-pencil-fill"></i>
+                  </button>
+                  <button
+                    type="button"
+                    class="bs-modal btn btn-sm btn-outline-danger"
+                    data-form-url="{% url 'delete_bookmark' bookmark.pk %}"
+                  >
+                  <i class="bi bi-trash-fill"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </p>
+  </div>
+</div>
+<center><button class="btn btn-dark" style="color: lawngreen;" onclick="location.href = '/bookmarks/'"><strong>Back</strong></button></center>
+  {% else %}
+  <div class="alert alert-danger" style="margin: 5px;">
+    Not Found!   <a href="{% url 'index' %}" class="alert-link"><strong>Back</strong></a>
+  </div>
+  {% endif %}
+
+  {% endblock content %} 
+</body>
+<script type="text/javascript">
+  $(function () {
+
+    $(".bs-modal").each(function () {
+      $(this).modalForm({ formURL: $(this).data("form-url") });
+    });
+
+
+  });
+</script>
+</html>

@@ -1,8 +1,7 @@
 from django.contrib.auth.mixins import (
     LoginRequiredMixin, UserPassesTestMixin,)
-from django.contrib.auth.models import User
-from django.http.response import Http404, HttpResponse
-from django.shortcuts import render
+from django.db.models import Q
+from django.http.response import HttpResponse
 from django.views import generic
 from .models import BookMark
 from django.urls import reverse_lazy
@@ -12,11 +11,16 @@ from bootstrap_modal_forms.generic import (BSModalCreateView,
 from .forms import (BookmarkModelForm, CustomAuthenticationForm)
 
 
-def search(request):
-    if request.method == "GET":
-        search = request.GET.get('search')
-        bookmarks = BookMark.objects.all().filter(bookmark_title=search)
-        return render(request, 'search_bar.html', {'bookmarks': bookmarks})
+class SearchView(generic.ListView):
+    model = BookMark
+    template_name = 'search.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        object_list = BookMark.objects.filter(
+            Q(bookmark_title__icontains=query)
+        )
+        return object_list
 
 
 class BookmarkListView(generic.ListView):
