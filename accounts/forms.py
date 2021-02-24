@@ -8,7 +8,7 @@ class Registration(PopRequestMixin, CreateUpdateAjaxMixin,
 
     class Meta(UserCreationForm):
         model = CustomUser
-        fields = UserCreationForm.Meta.fields + ('email', 'phone_number', )
+        fields = UserCreationForm.Meta.fields + ('email', 'phone', )
 
 
 class CustomUserChangeForm(UserChangeForm):

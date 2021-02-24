@@ -6,5 +6,5 @@ from accounts.forms import Registration
 class SignUpView(BSModalCreateView):
     form_class = Registration
     template_name = 'signup.html'
-    success_message = 'Success: Sign up succeeded. You can now Log in.'
+    success_message = 'Sign up succeeded.'
     success_url = reverse_lazy('index')
