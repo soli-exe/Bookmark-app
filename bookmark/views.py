@@ -1,10 +1,11 @@
+from django.shortcuts import render
 from django.views import generic
 from .models import BookMark
 from django.urls import reverse_lazy
-from django.contrib.messages.views import SuccessMessageMixin
-from bootstrap_modal_forms.generic import BSModalCreateView, BSModalDeleteView, BSModalUpdateView
-from .forms import BookmarkModelForm
-from django.shortcuts import render
+from bootstrap_modal_forms.generic import (BSModalCreateView,
+                                           BSModalDeleteView, BSModalLoginView,
+                                           BSModalUpdateView)
+from .forms import (BookmarkModelForm, CustomAuthenticationForm)
 
 
 def search(request):
@@ -23,6 +24,7 @@ class BookmarkListView(generic.ListView):
 class BookCreateView(BSModalCreateView):
     template_name = 'add_book.html'
     form_class = BookmarkModelForm
+    success_message = 'Bookmark Added.'
     success_url = reverse_lazy('index')
 
 
@@ -40,3 +42,9 @@ class BookmarkDeleteView(BSModalDeleteView):
     context_object_name = 'bookmarks'
     success_message = 'Bookmark Deleted!'
     success_url = reverse_lazy('index')
+
+
+class CustomLoginView(BSModalLoginView):
+    authentication_form = CustomAuthenticationForm
+    success_message = 'Welcome'
+    extra_context = dict(success_url=reverse_lazy('index'))

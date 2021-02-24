@@ -6,5 +6,6 @@ class BSModalForm(PopRequestMixin, forms.Form):
     pass
 
 
-class BSModalModelForm(PopRequestMixin, CreateUpdateAjaxMixin, forms.ModelForm):
+class BSModalModelForm(PopRequestMixin, CreateUpdateAjaxMixin,
+                       forms.ModelForm):
     pass

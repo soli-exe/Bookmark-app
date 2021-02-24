@@ -5,4 +5,4 @@ from .models import BookMark
 
 @admin.register(BookMark)
 class BookmarksAdmin(admin.ModelAdmin):
-    list_display = ['bookmark_title', 'bookmark_publication_date']
+    list_display = ['bookmark_title', 'timestamp']

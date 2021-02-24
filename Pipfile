@@ -12,6 +12,8 @@ django-widget-tweaks = "*"
 django-bootstrap4 = "*"
 djangoajax = "*"
 django-bootstrap-icons = "*"
+psycopg2 = "*"
+django-phone-field = "*"
 
 [dev-packages]
 
