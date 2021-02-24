@@ -96,18 +96,9 @@
 </nav>
 <center>{% include 'header.html' %}</center>
   <center>
-    <button
-      style="margin: 1%; color: chartreuse"
-      id="create-bookmark"
-      class="btn btn-dark"
-      type="button"
-      name="button"
-    >
-    Add Bookmark
-    </button>
     
 
-    <div class="col-12 mb-3">
+    <div class="col-12 mb-3" style="margin-top: 1%;">
       {% if bookmarks %} {% include "bookmarks_table.html" %} {% else %}
       <strong
         ><p style="color: crimson; margin: 1%">
@@ -117,6 +108,16 @@
       {% endif %}
     </div>
   </center>
+    <button
+    style="margin:auto; color: chartreuse"
+    id="create-bookmark"
+    class="btn btn-dark btn-block btn-lg "
+    type="button"
+    name="button"
+  >
+  Add Bookmark
+  </button>
+  
 
   
   {% endblock content %}
