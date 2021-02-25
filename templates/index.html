@@ -49,8 +49,8 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a href="{% url 'logout' %}" class="dropdown-item" type="button"
           name="button">Logout</a>
-        <a href="#" class="dropdown-item" type="button"
-          name="button">Change Password</a>
+        <button id="change-pass-btn"  class="dropdown-item" type="button"
+          name="button">Change Password</button>
         {% else %}
         <a
         style="color: cyan"
@@ -132,6 +132,12 @@
         formURL: "{% url 'accounts:signup' %}",
         modalID: "#modal",
     });
+
+    $("#change-pass-btn").modalForm({
+        formURL: "{% url 'accounts:change_password' %}",
+        modalID: "#modal",
+    });
+
 
 
       function createBookSyncModalForm() {
