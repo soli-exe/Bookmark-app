@@ -23,7 +23,8 @@ class SearchView(generic.ListView):
         return object_list
 
 
-class BookmarkListView(generic.ListView):
+class BookmarkListView(LoginRequiredMixin,
+                       generic.ListView):
     model = BookMark
     context_object_name = 'bookmarks'
     template_name = 'index.html'
