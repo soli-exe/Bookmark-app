@@ -3,7 +3,6 @@ from django.db.models.fields import (CharField,
                                      URLField)
 
 
-
 class BookMark(models.Model):
     bookmark_title = CharField(
         max_length=250, null=False, blank=False)

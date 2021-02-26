@@ -16,9 +16,10 @@ class SearchView(generic.ListView):
     template_name = 'search_result.html'
 
     def get_queryset(self):
+        user = self.request.user
         query = self.request.GET.get('q')
         object_list = BookMark.objects.filter(
-            Q(bookmark_title__icontains=query)
+            Q(bookmark_title__icontains=query, owner=user)
         )
         return object_list
 
@@ -28,6 +29,11 @@ class BookmarkListView(LoginRequiredMixin,
     model = BookMark
     context_object_name = 'bookmarks'
     template_name = 'index.html'
+
+    def get_queryset(self):
+        user = self.request.user
+        related_user_data = BookMark.objects.filter(owner=user)
+        return related_user_data
 
 
 class BookCreateView(LoginRequiredMixin,
