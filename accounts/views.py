@@ -9,7 +9,7 @@ from django.shortcuts import render, redirect
 
 class SignUpView(BSModalCreateView):
     form_class = Registration
-    template_name = 'signup.html'
+    template_name = 'registration/signup.html'
     success_message = 'Sign up succeeded.'
     success_url = reverse_lazy('index')
 

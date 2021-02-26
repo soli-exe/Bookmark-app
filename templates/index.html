@@ -51,23 +51,6 @@
           name="button">Logout</a>
         <button id="change-pass-btn"  class="dropdown-item" type="button"
           name="button">Change Password</button>
-        {% else %}
-        <a
-        style="color: cyan"
-          class="nav-link dropdown-toggle"
-          id="navbarDropdownMenuLink"
-          role="button"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          You are not logged in
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <button id="login-btn" class="dropdown-item" type="button"
-          name="button">Login</button>
-          <button id="signup-btn" class="dropdown-item" type="button" name="button">Sign up</button>
-        </div>
         {% endif %}
       </li>
     </ul>
@@ -103,32 +86,23 @@
       >
       {% endif %}
     </div>
-  </center>
+  
 
     <button
-    style="margin:auto; color: chartreuse"
+    style="margin:auto; color: chartreuse;"
     id="create-bookmark"
-    class="btn btn-dark btn-block btn-lg "
+    class="btn btn-dark btn-lg"
     type="button"
     name="button"
   >
   Add Bookmark
   </button>
+</center>
 {% endblock content %}
 {% block extrascripts %}
   <script type="text/javascript">
     $(function () {
 
-
-    $("#login-btn").modalForm({
-      formURL: "{% url 'acc_login' %}",
-
-    });
-
-    $("#signup-btn").modalForm({
-        formURL: "{% url 'accounts:signup' %}",
-        modalID: "#modal",
-    });
 
     $("#change-pass-btn").modalForm({
         formURL: "{% url 'accounts:change_password' %}",
