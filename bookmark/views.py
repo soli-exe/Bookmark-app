@@ -54,7 +54,7 @@ class BookmarkUpdateView(LoginRequiredMixin,
     model = BookMark
     template_name = 'bookmark_edit.html'
     form_class = BookmarkModelForm
-    success_message = 'Bookmark Edited.'
+    success_message = 'Bookmark Updated.'
     success_url = reverse_lazy('index')
 
     def test_func(self):
@@ -68,7 +68,7 @@ class BookmarkDeleteView(LoginRequiredMixin,
     model = BookMark
     template_name = 'bookmark_delete.html'
     context_object_name = 'bookmarks'
-    success_message = 'Bookmark Deleted!'
+    success_message = 'Bookmark has been Removed!'
     success_url = reverse_lazy('index')
 
     def test_func(self):
