@@ -1,7 +1,7 @@
 {% load django_bootstrap_icons %}
 {% include_bootstrap_icons %}
 
-<div class="card text-white bg-dark pre-scrollable mb-3" style="border-radius: 15px;">
+<div class="card bg-dark pre-scrollable mb-3" style="border-radius: 15px;">
   <div class="card-body">
     <p>
       <table id="books-table" class="table table-striped">
@@ -17,8 +17,8 @@
         <tbody>
           {% for bookmark in bookmarks %}
           <tr>
-            <th class="text-center" scope="row">{{ forloop.counter }}</th>
-            <td class="text-center">{{ bookmark.bookmark_title }}</td>
+            <th class="text-center text-white" scope="row">{{ forloop.counter }}</th>
+            <td class="text-center text-white" scope="row">{{ bookmark.bookmark_title }}</td>
             <td class="text-center"><a href="{{ bookmark.bookmark_link }}">{{ bookmark.bookmark_link }}</a></td>
             <!-- <td class="text-center">{{ bookmark.timestamp }}</td> -->
             <td class="text-center">
