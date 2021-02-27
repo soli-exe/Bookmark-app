@@ -79,4 +79,3 @@ class BookmarkDeleteView(LoginRequiredMixin,
 class CustomLoginView(BSModalLoginView):
     authentication_form = CustomAuthenticationForm
     success_message = 'Welcome'
-    extra_context = dict(success_url=reverse_lazy('index'))
