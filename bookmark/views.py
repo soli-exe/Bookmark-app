@@ -6,9 +6,9 @@ from django.views import generic
 from .models import BookMark
 from django.urls import reverse_lazy
 from bootstrap_modal_forms.generic import (BSModalCreateView,
-                                           BSModalDeleteView, BSModalLoginView,
+                                           BSModalDeleteView,
                                            BSModalUpdateView)
-from .forms import (BookmarkModelForm, CustomAuthenticationForm)
+from .forms import BookmarkModelForm
 
 
 class SearchView(generic.ListView):
@@ -74,8 +74,3 @@ class BookmarkDeleteView(LoginRequiredMixin,
     def test_func(self):
         objects = self.get_object()
         return objects.owner == self.request.user
-
-
-class CustomLoginView(BSModalLoginView):
-    authentication_form = CustomAuthenticationForm
-    success_message = 'Welcome'
