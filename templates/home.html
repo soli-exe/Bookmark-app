@@ -1,16 +1,14 @@
-{% extends 'base.html' %} {% load static %}
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'assets/cses/home_header.css' %}" />
   </head>
   {% block content %}
   <body>
-    {% include 'waves.html' %}
-    {% include 'modal.html' %}
+    {% include 'waves.html' %} {% include 'modal.html' %}
     <center>
       {% include 'message.html' %}
       <div
@@ -20,51 +18,49 @@
         <div class="card-header" style="color: chartreuse">
           Welcome to Bookmark app
         </div>
-        <div class="card-body">
-          <strong><h5 class="card-title" style="color: rgb(255, 145, 0);">Note</h5></strong>
+        <div class="card-body" style="text-align: left">
+          <strong
+            ><h5 class="card-title" style="color: rgb(255, 145, 0)">
+              Note:
+            </h5></strong
+          >
           <p class="card-text">
             Unfortunately, to use this app, you must log in to your account.
-            Also, if you want to know about this app or how it works,
-          </br>you can enter the <a href="#">DEMO MODE.</a>
+          </br>Also, if you want to know about this app or how it works, you can
+            enter the </br> <a href="#">DEMO MODE.</a>
           </p>
-          <div class="card-footer">
-            <button
-              style="margin: 5px"
-              class="btn btn-primary btn-sm"
-              type="button"
-              id="btn-signup"
+        </div>
+        <div class="card-footer">
+          <button
+            style="margin: 5px"
+            class="btn btn-primary btn-sm w-50"
+            type="button"
+            id="signup-btn"
+          >
+            Signup
+          </button>
+          <p>
+            Already have an account?
+            <a
+              style="text-decoration: none; color: dodgerblue"
+              class=""
+              href="{% url 'acc_login' %}"
+              id="login-link"
+              >Login</a
             >
-              Signup
-            </button>
-            <p>
-              Already have an account?
-              <a
-                style="text-decoration: none; color: dodgerblue"
-                class=""
-                href="#"
-                id="login-link"
-                >Login</a
-              >
-            </p>
-          </div>
+          </p>
         </div>
       </div>
-      <p style="color: rgb(255, 145, 0) ;">
-        ●Powered By SoliExE●
-      </p>
+      <p style="color: rgb(255, 145, 0)">●Powered By SoliExE●</p>
     </center>
     {% endblock content %}
   </body>
   {% block extrascripts %}
   <script type="text/javascript">
     $(function () {
-      $("#login-link").modalForm({
-        formURL: "{% url 'acc_login' %}",
-      });
-
-      $("#btn-signup").modalForm({
-        formURL: "{% url 'accounts:signup' %}",
-        modalID: "#modal",
+      $("#signup-btn").on("click", function () {
+        var url = "{% url 'accounts:signup' %}";
+        document.location.href = url;
       });
 
       $(".alert")
