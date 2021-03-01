@@ -15,24 +15,26 @@
           </tr>
         </thead>
         <tbody>
-          {% for bookmark in bookmarks %}
+          {% for bookmark in demo_bookmarks %}
           <tr>
             <th class="text-center text-white" scope="row">{{ forloop.counter }}</th>
-            <td class="text-center text-white" scope="row">{{ bookmark.bookmark_title }}</td>
-            <td class="text-center" style="max-width: 150px;"><a href="{{ bookmark.bookmark_link }}">{{ bookmark.bookmark_link }}</a></td>
+            <td class="text-center text-white" scope="row">{{ bookmark.bookmark_title_demo }}</td>
+            <td class="text-center"><a href="{{ bookmark.bookmark_link }}">{{ bookmark.bookmark_link_demo }}</a></td>
             <!-- <td class="text-center">{{ bookmark.timestamp }}</td> -->
-            <td class="text-center" style="max-width: 10px;">
+            <td class="text-center">
                   <button
                   type="button"
                   class="bs-modal btn btn-sm btn-outline-primary"
-                  data-form-url="{% url 'edit_bookmark' bookmark.pk %}"
+                  id="edit-btn"
+                  data-form-url="{% url 'bookmark_demo_mode:demo_bookmark_edit' bookmark.pk %}"
                 >
                 <i class="bi bi-pencil-fill"></i>
                 </button>
                 <button
                   type="button"
                   class="bs-modal btn btn-sm btn-outline-danger"
-                  data-form-url="{% url 'delete_bookmark' bookmark.pk %}"
+                  id="delete-btn"
+                  data-form-url="{% url 'bookmark_demo_mode:demo_bookmark_delete' bookmark.pk %}"
                 >
                 <i class="bi bi-trash-fill"></i>
                 </button>

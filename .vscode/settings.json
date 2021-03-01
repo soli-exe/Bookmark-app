@@ -2,5 +2,5 @@
     "python.linting.banditEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
-    "python.pythonPath": "/bin/python3"
+    "python.pythonPath": "/home/soliexe/.local/share/virtualenvs/bookmarks-WYgD6FKf/bin/python"
 }
