@@ -45,8 +45,10 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a href="{% url 'logout' %}" class="dropdown-item" type="button"
           name="button">Logout</a>
+          {% if user.id != 11 %}
         <button id="change-pass-btn"  class="dropdown-item" type="button"
           name="button">Change Password</button>
+          {% endif %}
         {% endif %}
       </li>
     </ul>

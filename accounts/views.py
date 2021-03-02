@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from bootstrap_modal_forms.generic import BSModalCreateView
-from django.urls.base import reverse_lazy
+from django.urls.base import reverse_lazy, reverse
 from accounts.forms import Registration
 from django.contrib.auth.forms import PasswordChangeForm
 from django.shortcuts import render, redirect
@@ -21,10 +21,11 @@ def change_password(request):
             user = form.save()
             update_session_auth_hash(request, user)
             messages.success(
-                request, 'Your password was successfully updated!')
-            return redirect('index')
+                request, 'Your password was successfully updated.')
+            return redirect('home')
         else:
-            messages.error(request, 'Please correct the error below.')
+            messages.error(request, 'Please correct the error below!')
+            return redirect('index')
     else:
         form = PasswordChangeForm(request.user)
     return render(request, 'registration/password_change.html', {
