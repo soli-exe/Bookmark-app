@@ -21,5 +21,4 @@ urlpatterns = [
     path('', include('bookmark.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
-    path('', include('bookmark_demo_mode.urls'))
 ]

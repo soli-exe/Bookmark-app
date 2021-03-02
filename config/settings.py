@@ -32,8 +32,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django_q',
-    'bookmark_demo_mode',
     'crispy_forms',
     'phone_field',
     'django_bootstrap_icons',
@@ -67,11 +65,6 @@ ROOT_URLCONF = 'config.urls'
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
-Q_CLUSTER = {
-    "name": "shop",
-    "orm": "default",
-}
 
 TEMPLATES = [
     {
