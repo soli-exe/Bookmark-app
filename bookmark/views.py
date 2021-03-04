@@ -38,7 +38,7 @@ class BookmarkListView(LoginRequiredMixin,
 
 class BookCreateView(LoginRequiredMixin,
                      BSModalCreateView):
-    template_name = 'add_book.html'
+    template_name = 'bookmark_add.html'
     form_class = BookmarkModelForm
     success_message = 'Bookmark Added.'
     success_url = reverse_lazy('index')
