@@ -27,9 +27,9 @@ env.read_env()
 SECRET_KEY = env.str('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUG', default=False)
+DEBUG = env.bool('DEBUG')
 
-ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['bookmarks-soliexe.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -94,10 +94,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bookmarkApp',
+        'NAME': 'dds2anpm8hp2h5',
         'USER': env.str('POSTGRESQL_USER_NAME'),
         'PASSWORD': env.str('POSTGRESQL_PASSWORD'),
-        'HOST': 'localhost',
+        'HOST': 'ec2-54-89-49-242.compute-1.amazonaws.com',
+        'PORT': 5432,
     }
 }
 
