@@ -16,6 +16,8 @@ psycopg2 = "*"
 django-phone-field = "*"
 django-crispy-forms = "==1.9.2"
 django-q = "*"
+psycopg2-binary = "==2.8.5"
+gunicorn = "==19.9.0"
 
 [dev-packages]
 
