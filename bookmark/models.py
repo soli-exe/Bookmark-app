@@ -10,7 +10,7 @@ class BookMark(models.Model):
     owner = models.ForeignKey('accounts.CustomUser',
                               on_delete=models.CASCADE,
                               null=True)
-    timestamp = models.DateField(auto_now_add=True, auto_now=False)
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
 
     def __str__(self) -> str:
         return self.bookmark_title
