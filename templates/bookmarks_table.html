@@ -16,10 +16,10 @@
         </thead>
         <tbody>
           {% for bookmark in bookmarks %}
-          <tr>
+          <tr >
             <th class="text-center text-white" scope="row">{{ forloop.counter }}</th>
-            <td class="text-center text-white" scope="row">{{ bookmark.bookmark_title }}</td>
-            <td class="text-center" style="max-width: 150px;"><a href="{{ bookmark.bookmark_link }}">{{ bookmark.bookmark_link }}</a></td>
+            <td class="text-center text-white" scope="row"><strong>{{ bookmark.bookmark_title }}</strong></td>
+            <td class="text-center" style="max-width: 150px; font-size: 12px;"><a href="{{ bookmark.bookmark_link }}">{{ bookmark.bookmark_link }}</a></td>
             <!-- <td class="text-center">{{ bookmark.timestamp }}</td> -->
             <td class="text-center" style="max-width: 10px;">
                   <button

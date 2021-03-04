@@ -29,7 +29,7 @@
               <tr>
                 <th class="text-center text-white" scope="row">{{ forloop.counter }}</th>
                 <td class="text-center text-white">{{ bookmark.bookmark_title }}</td>
-                <td class="text-center"><a href="{{ bookmark.bookmark_link }}">{{ bookmark.bookmark_link }}</a></td>
+                <td class="text-center" style="max-width: 150px; font-size: 12px;"><a href="{{ bookmark.bookmark_link }}">{{ bookmark.bookmark_link }}</a></td>
                 <!-- <td class="text-center">{{ bookmark.timestamp }}</td> -->
                 <td class="text-center">
                       <button
@@ -65,9 +65,11 @@
       </button>
     </center>
     {% else %}
-    <div class="alert alert-danger" style="margin: 5px">
-      Not Found!
+    <center>
+    <div class="alert alert-info" style="margin: 5px; max-width: max-content;">
+      No result found!
       <a href="{% url 'index' %}" class="alert-link"><strong>Back</strong></a>
+    </center>
     </div>
     {% endif %} {% endblock content %}
   </body>
