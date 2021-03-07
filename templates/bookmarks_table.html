@@ -1,7 +1,7 @@
 {% load django_bootstrap_icons %}
 {% include_bootstrap_icons %}
 
-<div class="card bg-dark pre-scrollable mb-3" style="border-radius: 15px;">
+<div class="card bg-dark pre-scrollable mb-3" style="border-radius: 15px; width:fit-content">
   <div class="card-body">
     <p>
       <table id="books-table" class="table table-striped">
@@ -31,7 +31,7 @@
                 </button>
                 <button
                   type="button"
-                  class="bs-modal btn btn-sm btn-outline-danger"
+                  class="bs-modal btn btn-sm btn-outline-danger mt-1"
                   data-form-url="{% url 'delete_bookmark' bookmark.pk %}"
                 >
                 <i class="bi bi-trash-fill"></i>
