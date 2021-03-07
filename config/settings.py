@@ -94,11 +94,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bookmarkApp',
-        'USER': env.str('POSTGRESQL_USER_NAME'),
-        'PASSWORD': env.str('POSTGRESQL_PASSWORD'),
-        'HOST': 'localhost',
-        # 'PORT': 5432,
+        'NAME': 'd3rjrvv1jsgkah',
+        'USER': env.str('HEROKU_POSTGRES_USER'),
+        'PASSWORD': env.str('HEROKU_POSTGRES_PASS'),
+        'HOST': 'ec2-50-16-108-41.compute-1.amazonaws.com',
+        'PORT': 5432,
     }
 }
 
